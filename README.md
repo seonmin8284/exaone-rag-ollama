@@ -1,6 +1,6 @@
-# 🧠 Korean PDF RAG with FastAPI + FAISS + SentenceTransformer
+# 🧠 EXAONE-DEEP RAG with FastAPI + FAISS + SentenceTransformer
 
-한국어 PDF 문서를 FAISS 기반으로 임베딩 및 인덱싱하고, Ollama 기반 LLM(EXAONE)을 통해 질의응답을 수행하는 **RAG(Retrieval-Augmented Generation)** 시스템입니다.
+한화생명 케어백H간병보험 무배당 상품요약서 PDF 문서를 FAISS 기반으로 임베딩 및 인덱싱하고, Ollama 기반 LLM(EXAONE)을 통해 질의응답을 수행하는 **RAG(Retrieval-Augmented Generation)** 시스템입니다.
 
 > 🔍 **주요 특징**
 
