@@ -1,0 +1,29 @@
+# Model path (choose appropriate GGUF weights on your own)
+FROM ./EXAONE-Deep-7.8B-BF16.gguf
+
+# Parameter values
+PARAMETER stop "[|endofturn|]"
+PARAMETER repeat_penalty 1.0
+PARAMETER num_ctx 32768
+PARAMETER temperature 0.6
+PARAMETER top_p 0.95
+
+# Chat template
+#   Note: currently there is no feature of removing `<thought></thought>` steps from context 
+#   because ollama does not support yet. We will update when according feature is available.
+TEMPLATE """{{- range $i, $_ := .Messages }}
+{{- $last := eq (len (slice $.Messages $i)) 1 -}}
+{{ if eq .Role "system" }}[|system|]{{ .Content }}[|endofturn|]
+{{ continue }}
+{{ else if eq .Role "user" }}[|user|]{{ .Content }}
+{{ else if eq .Role "assistant" }}[|assistant|]{{ .Content }}[|endofturn|]
+{{ end }}
+{{- if and (ne .Role "assistant") $last }}[|assistant|]<thought>
+{{ end }}
+{{- end -}}"""
+
+# System prompt
+SYSTEM """"""
+
+# License
+LICENSE """EXAONE AI Model License Agreement 1.1 - NC """
