@@ -14,7 +14,7 @@
 ---
 
 ## 📂 프로젝트 구조
-
+```plaintext
 project/
 ├── app.py # FastAPI 앱 (LLM 질의 처리)
 ├── ingester.py # PDF 텍스트 추출 및 FAISS 인덱스 생성
@@ -30,6 +30,8 @@ project/
 └── faiss_index.pkl # 저장된 청크 원문
 └── data/
 └── source.pdf # 질의 기반 문서 원본
+```
+
 
 | 구성요소    | 설명                                         |
 | ----------- | -------------------------------------------- |
@@ -38,3 +40,7 @@ project/
 | LLM 응답    | Ollama EXAONE (`exaone-deep:7.8b`)           |
 | 청크 방식   | 슬라이딩 윈도우 (기본 700자, 50자 overlap)   |
 | 중복 제거   | `difflib.SequenceMatcher` 기반 유사도 필터링 |
+
+
+
+![image](https://github.com/user-attachments/assets/d5ae865a-ec9c-48b8-ba81-6e0f1cab132b)
